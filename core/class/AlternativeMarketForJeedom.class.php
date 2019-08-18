@@ -57,7 +57,7 @@ class AlternativeMarketForJeedom extends eqLogic
     {
         AmfjDownloadManager::init();
 
-        $plugin = plugin::byId('AlternativeMarketForJeedom');
+        $plugin = plugin::byId('LSHMarket');
         $eqLogics = eqLogic::byType($plugin->getId(), true);
 
         foreach ($eqLogics as $eqLogic) {

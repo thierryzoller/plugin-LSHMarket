@@ -29,7 +29,7 @@ class AmfjAjaxParserTest extends TestCase
     protected function setUp()
     {
         DB::init(true);
-        $this->dataStorage = new AmfjDataStorage('amfj');
+        $this->dataStorage = new AmfjDataStorage('lsh');
         $this->dataStorage->createDataTable();
         mkdir('cache');
     }

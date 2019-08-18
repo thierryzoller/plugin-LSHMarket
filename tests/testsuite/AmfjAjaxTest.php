@@ -29,7 +29,7 @@ class AmfjAjaxTest extends TestCase
     {
         DB::init(false);
         JeedomVars::$isConnected = true;
-        $this->dataStorage = new AmfjDataStorage('amfj');
+        $this->dataStorage = new AmfjDataStorage('lsh');
 
     }
 

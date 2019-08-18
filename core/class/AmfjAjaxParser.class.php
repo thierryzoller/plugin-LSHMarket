@@ -206,7 +206,7 @@ class AmfjAjaxParser
      */
     public static function source($params, array $data)
     {
-        $dataStorage = new AmfjDataStorage('amfj');
+        $dataStorage = new AmfjDataStorage('lsh');
         switch ($params) {
             case 'add':
                 $source = [];
@@ -242,7 +242,7 @@ class AmfjAjaxParser
     {
         switch ($params) {
             case 'sources':
-                $dataStorage = new AmfjDataStorage('amfj');
+                $dataStorage = new AmfjDataStorage('lsh');
                 foreach ($data as $source) {
                     $sourceData = $dataStorage->getJsonData('source_'.$source['id']);
                     $sourceData['enabled'] = $source['enable'];

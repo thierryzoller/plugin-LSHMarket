@@ -25,7 +25,7 @@ require_once(dirname(__FILE__) . '/../core/class/AlternativeMarketForJeedom.clas
  */
 function AlternativeMarketForJeedom_install()
 {
-    $dataStorage = new AmfjDataStorage('amfj');
+    $dataStorage = new AmfjDataStorage('lsh');
     $dataStorage->createDataTable();
 
     $markets = [
@@ -57,7 +57,7 @@ function AlternativeMarketForJeedom_update()
 function AlternativeMarketForJeedom_remove()
 {
     // Suppression des sources de la base de données
-    $dataStorage = new AmfjDataStorage('amfj');
+    $dataStorage = new AmfjDataStorage('lsh');
     $dataStorage->dropDataTable();
 
     // Suppresion des données de configuration

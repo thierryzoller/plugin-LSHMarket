@@ -29,7 +29,7 @@ class DesktopAlternativeMarketForJeedomTest extends TestCase
     protected function setUp()
     {
         DB::init(true);
-        $this->dataStorage = new AmfjDataStorage('amfj');
+        $this->dataStorage = new AmfjDataStorage('lsh');
         $this->dataStorage->dropDataTable();
         $this->dataStorage->createDataTable();
         MockedActions::clear();

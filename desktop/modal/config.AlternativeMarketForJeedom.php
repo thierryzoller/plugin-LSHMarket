@@ -22,7 +22,7 @@ if (!isConnect('admin')) {
 }
 
 require_once(__DIR__.'/../../core/class/AmfjDataStorage.class.php');
-$dataStorage = new AmfjDataStorage('amfj');
+$dataStorage = new AmfjDataStorage('lsh');
 $sourcesListRaw = $dataStorage->getAllByPrefix('source_');
 
 $sourcesList = array();

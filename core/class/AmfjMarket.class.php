@@ -45,7 +45,7 @@ class AmfjMarket
     {
         AmfjDownloadManager::init();
         $this->source = $source;
-        $this->dataStorage = new AmfjDataStorage('amfj');
+        $this->dataStorage = new AmfjDataStorage('lsh');
     }
 
     /**

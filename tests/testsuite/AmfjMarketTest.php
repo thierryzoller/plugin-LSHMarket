@@ -44,7 +44,7 @@ class AmfjMarketTest extends TestCase
         $source['name'] = 'NextDom';
         $source['data'] = 'NextDom';
         $this->market = new AmfjMarket($source);
-        $this->dataStorage = new AmfjDataStorage('amfj');
+        $this->dataStorage = new AmfjDataStorage('lsh');
         $this->dataStorage->createDataTable();
         mkdir('cache');
     }

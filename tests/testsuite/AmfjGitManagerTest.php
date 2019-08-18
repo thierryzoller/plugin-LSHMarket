@@ -52,7 +52,7 @@ class GitManagerTest extends TestCase
             config::addKeyToCore('github::token', $token);
         }
         $this->gitManager = new Mocked_GitManager(GITHUB_TEST_REPO);
-        $this->dataStorage = new AmfjDataStorage('amfj');
+        $this->dataStorage = new AmfjDataStorage('lsh');
         $this->dataStorage->createDataTable();
     }
 

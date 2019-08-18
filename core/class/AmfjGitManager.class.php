@@ -42,7 +42,7 @@ class AmfjGitManager
     {
         AmfjDownloadManager::init();
         $this->gitId = $gitId;
-        $this->dataStorage = new AmfjDataStorage('amfj');
+        $this->dataStorage = new AmfjDataStorage('lsh');
     }
 
     /**

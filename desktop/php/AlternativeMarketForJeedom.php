@@ -24,7 +24,7 @@ if (!isConnect('admin')) {
     throw new \Exception('{{401 - Accès non autorisé}}');
 }
 
-$dataStorage = new AmfjDataStorage('amfj');
+$dataStorage = new AmfjDataStorage('lsh');
 $sourcesListRaw = $dataStorage->getAllByPrefix('source_');
 
 $sourcesList = array();

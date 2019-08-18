@@ -107,7 +107,7 @@ class AmfjMarketItem
      */
     public function __construct($sourceName)
     {
-        $this->dataStorage = new AmfjDataStorage('amfj');
+        $this->dataStorage = new AmfjDataStorage('lsh');
         $this->sourceName = $sourceName;
         $this->iconPath = false;
     }

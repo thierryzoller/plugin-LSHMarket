@@ -65,8 +65,6 @@ if (isset($_GET['message'])) {
 include_file('desktop', 'AlternativeMarketForJeedom', 'js', 'AlternativeMarketForJeedom');
 include_file('desktop', 'AlternativeMarketForJeedom', 'css', 'AlternativeMarketForJeedom');
 include_file('core', 'plugin.template', 'js');
-
-$a = config::byKey('github::token');
 ?>
 <div class="row">
     <div id="logo-nextdom" class="hidden-xs hidden-sm col-md-1">

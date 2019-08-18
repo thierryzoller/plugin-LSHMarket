@@ -1,9 +1,9 @@
 {
-  "id": "AlternativeMarketForJeedom",
-  "name": "AlternativeMarketForJeedom",
+  "id": "LSHMarket",
+  "name": "LUX Smart Home Market",
   "licence": "GPL",
   "require": "3.0",
-  "version": "0.1",
+  "version": "0.2",
   "category": "programming",
   "hasDependency": false,
   "hasOwnDaemon": false,
@@ -11,5 +11,5 @@
   "documentation": "https://nextdom.github.io/plugin-AlternativeMarketForJeedom/#language#/",
   "changelog": "https://nextdom.github.io/plugin-AlternativeMarketForJeedom/#language#/changelog",
   "description": "Market alternatif pour la solution domotique Jeedom",
-  "author": "Sylvain DANGIN"
+  "author": "Thierry Zoller / Sylvain DANGIN"
 }

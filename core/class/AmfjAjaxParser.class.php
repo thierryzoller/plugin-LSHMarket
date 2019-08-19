@@ -141,7 +141,7 @@ class LSHAjaxParser
                     $idList = [];
                     $showDuplicates = config::byKey('show-duplicates', 'LSHMarketforJeedom');
                     foreach ($data as $source) {
-                        $market = new AmfjMarket($source);
+                        $market = new LSHMarketFunctions($source);
                         // Obtenir la liste complète
                         $items = $market->getItems();
                         foreach ($items as $item) {

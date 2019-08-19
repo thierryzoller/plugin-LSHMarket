@@ -65,7 +65,7 @@ class LSHMarket extends eqLogic
             $source['name'] = $eqLogic->getName();
             $source['type'] = $eqLogic->getConfiguration('type');
             $source['data'] = $eqLogic->getConfiguration('data');
-            $market = new AmfjMarket($source);
+            $market = new LSHMarketFunctions($source);
             $market->refresh(true);
             foreach ($market->getItems() as $marketItem) {
                 $marketItem->downloadIcon();

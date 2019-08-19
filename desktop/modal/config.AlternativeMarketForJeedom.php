@@ -33,7 +33,7 @@ foreach ($sourcesListRaw as $sourceRaw) {
     \array_push($sourcesList, $source);
 }
 
-\usort($sourcesList, array('LSHMarket', 'cmpByOrder'));
+\usort($sourcesList, array('LSHMarketforJeedom', 'cmpByOrder'));
 
 sendVarToJs('sourcesList', $sourcesList);
 

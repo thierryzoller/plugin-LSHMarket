@@ -19,7 +19,7 @@ require_once('AmfjGitManager.class.php');
 require_once('AmfjDownloadManager.class.php');
 require_once('AmfjMarketItem.class.php');
 
-class LSHMarket
+class LSHMarketFunctions
 {
     /**
      * @var int Temps de rafraichissement de la liste des plugins

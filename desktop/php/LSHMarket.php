@@ -37,7 +37,7 @@ if ($sourcesListRaw !== null) {
         }
     }
 
-    \usort($sourcesList, array('LSHMarket', 'cmpByOrder'));
+    \usort($sourcesList, array('LSHMarketforJ', 'cmpByOrder'));
 }
 
 sendVarToJs('sourcesList', $sourcesList);

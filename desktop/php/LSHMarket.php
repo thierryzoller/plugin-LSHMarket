@@ -84,7 +84,6 @@ include_file('core', 'plugin.template', 'js');
                 </div>
             </div>
         <?php endif; ?>
-		<h1><?php print $a ?></h1>
 		
         <div class="market-filters row">
             <div class="form-group btn-group col-sm-12 col-md-6 col-lg-3">

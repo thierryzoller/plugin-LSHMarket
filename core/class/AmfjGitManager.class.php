@@ -22,7 +22,7 @@ require_once('AmfjDataStorage.class.php');
 /**
  * Gestion des informations liées à GitHub
  */
-class AmfjGitManager
+class LSHGitManager
 {
     /**
      * @var string Utilisateur du dépot
@@ -40,9 +40,9 @@ class AmfjGitManager
      */
     public function __construct($gitId)
     {
-        AmfjDownloadManager::init();
+        LSHDownloadManager::init();
         $this->gitId = $gitId;
-        $this->dataStorage = new AmfjDataStorage('lsh');
+        $this->dataStorage = new LSHDataStorage('lsh');
     }
 
     /**
@@ -87,10 +87,10 @@ class AmfjGitManager
     protected function downloadRepositoriesList()
     {
         $result = false;
-        $content = AmfjDownloadManager::downloadContent('https://api.github.com/orgs/' . $this->gitId . '/repos?per_page=100');
+        $content = LSHDownloadManager::downloadContent('https://api.github.com/orgs/' . $this->gitId . '/repos?per_page=100');
         // Limite de l'API GitHub atteinte
         if (\strstr($content, 'API rate limit exceeded')) {
-            $content = AmfjDownloadManager::downloadContent('https://api.github.com/rate_limit');
+            $content = LSHDownloadManager::downloadContent('https://api.github.com/rate_limit');
             $gitHubLimitData = json_decode($content, true);
             $refreshDate = date('H:i', $gitHubLimitData['resources']['core']['reset']);
             throw new \Exception('Limite de l\'API GitHub atteinte. Le rafraichissement sera accessible à ' . $refreshDate);
@@ -101,7 +101,7 @@ class AmfjGitManager
             // Test si c'est un dépôt d'organisation
             if (\strstr($content, '"message":"Not Found"')) {
                 // Test d'un téléchargement pour un utilisateur
-                $content = AmfjDownloadManager::downloadContent('https://api.github.com/users/' . $this->gitId . '/repos?per_page=100');
+                $content = LSHDownloadManager::downloadContent('https://api.github.com/users/' . $this->gitId . '/repos?per_page=100');
                 // Test si c'est un dépot d'utilisateur
                 if (\strstr($content, '"message":"Not Found"') || strlen($content) < 10) {
                     throw new \Exception('Le dépôt ' . $this->gitId . ' n\'existe pas.');
@@ -127,7 +127,7 @@ class AmfjGitManager
         $ignoreList = $this->getIgnoreList();
         foreach ($repositoriesList as $repository) {
             $repositoryName = $repository['name'];
-            $marketItem = AmfjMarketItem::createFromGit($sourceName, $repository);
+            $marketItem = LSHMarketItem::createFromGit($sourceName, $repository);
             if (($force || $marketItem->isNeedUpdate($repository)) && !\in_array($repositoryName, $ignoreList)) {
                 if (!$marketItem->refresh()) {
                     \array_push($ignoreList, $repositoryName);
@@ -191,7 +191,7 @@ class AmfjGitManager
         $ignoreList = $this->getIgnoreList();
         foreach ($repositories as $repository) {
             if (!\in_array($repository['name'], $ignoreList)) {
-                $marketItem = AmfjMarketItem::createFromCache($sourceName, $repository['full_name']);
+                $marketItem = LSHMarketItem::createFromCache($sourceName, $repository['full_name']);
                 array_push($result, $marketItem);
             }
         }

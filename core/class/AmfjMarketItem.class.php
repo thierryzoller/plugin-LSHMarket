@@ -16,7 +16,7 @@
  */
 
 
-class AmfjMarketItem
+class LSHMarketItem
 {
     /**
      * @var int Temps de rafraichissement d'un dépôt
@@ -107,7 +107,7 @@ class AmfjMarketItem
      */
     public function __construct($sourceName)
     {
-        $this->dataStorage = new AmfjDataStorage('lsh');
+        $this->dataStorage = new LSHDataStorage('lsh');
         $this->sourceName = $sourceName;
         $this->iconPath = false;
     }
@@ -320,7 +320,7 @@ class AmfjMarketItem
     {
         $result = false;
         $infoJsonUrl = 'https://raw.githubusercontent.com/' . $this->fullName . '/' . $this->defaultBranch . '/plugin_info/info.json';
-        $infoJson = AmfjDownloadManager::downloadContent($infoJsonUrl);
+        $infoJson = LSHDownloadManager::downloadContent($infoJsonUrl);
         if (strpos($infoJson, '404: Not Found') === false) {
             $pluginData = \json_decode($infoJson, true);
             if (\is_array($pluginData) && \array_key_exists('id', $pluginData)) {
@@ -342,12 +342,12 @@ class AmfjMarketItem
         $iconFilename = \str_replace('/', '_', $this->fullName) . '.png';
         $iconUrl = 'https://raw.githubusercontent.com/' . $this->fullName . '/' . $this->defaultBranch . '/plugin_info/' . $this->id . '_icon.png';
         $targetPath = \dirname(__FILE__) . '/../../cache/' . $iconFilename;
-        AmfjDownloadManager::downloadBinary($iconUrl, $targetPath);
+        LSHDownloadManager::downloadBinary($iconUrl, $targetPath);
         if (\filesize($targetPath) < 100) {
             \unlink($targetPath);
-            $this->iconPath = 'plugins/AlternativeMarketForJeedom/resources/Unknown_icon.png';
+            $this->iconPath = 'plugins/LSHMarket/resources/Unknown_icon.png';
         } else {
-            $this->iconPath = 'plugins/AlternativeMarketForJeedom/cache/' . $iconFilename;
+            $this->iconPath = 'plugins/LSHMarket/cache/' . $iconFilename;
         }
         $this->writeCache();
     }
@@ -361,7 +361,7 @@ class AmfjMarketItem
     {
         $result = false;
         $baseGitRepoUrl = 'https://api.github.com/repos/' . $this->fullName . '/branches';
-        $branches = AmfjDownloadManager::downloadContent($baseGitRepoUrl);
+        $branches = LSHDownloadManager::downloadContent($baseGitRepoUrl);
         if ($branches !== false) {
             $branches = \json_decode($branches, true);
             $this->branchesList = [];

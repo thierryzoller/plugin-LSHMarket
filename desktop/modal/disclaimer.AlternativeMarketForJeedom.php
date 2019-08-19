@@ -59,4 +59,4 @@ if (!isConnect('admin')) {
         </div>
     </div>
 <?php
-include_file('desktop', 'disclaimer.AlternativeMarketForJeedom', 'js', 'AlternativeMarketForJeedom');
+include_file('desktop', 'disclaimer.AlternativeMarketForJeedom', 'js', 'LSHMarket');

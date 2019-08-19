@@ -23,7 +23,7 @@ require_once('AmfjDownloadManager.class.php');
 /**
  * Classe des objets de Jeedom
  */
-class AlternativeMarketForJeedom extends eqLogic
+class LSHMarketforJeedom extends eqLogic
 {
     /**
      * Compare deux objets en fonction de la valeur 'order'
@@ -55,7 +55,7 @@ class AlternativeMarketForJeedom extends eqLogic
      */
     public static function cronDaily()
     {
-        AmfjDownloadManager::init();
+        LSHDownloadManager::init();
 
         $plugin = plugin::byId('LSHMarket');
         $eqLogics = eqLogic::byType($plugin->getId(), true);

@@ -8,7 +8,7 @@ $(document).ready(function () {
     $('#delete-plugin').click(function() {
         $.post({
             url: 'core/ajax/update.ajax.php',
-            data: {action: 'remove', id: 'AlternativeMarketForJeedom'},
+            data: {action: 'remove', id: 'LSHMarket'},
             dataType: 'json',
             success: function (data, status) {
                 // Test si l'appel a échoué

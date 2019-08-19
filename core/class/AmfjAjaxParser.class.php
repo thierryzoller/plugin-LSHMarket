@@ -22,7 +22,7 @@ require_once 'AmfjDownloadManager.class.php';
 /**
  * Analyseur des requêtes Ajax
  */
-class AmfjAjaxParser
+class LSHAjaxParser
 {
     /**
      * Point d'entrée des requêtes Ajax
@@ -98,7 +98,7 @@ class AmfjAjaxParser
         if (is_array($sources)) {
             $result = true;
             foreach ($sources as $source) {
-                $market = new AmfjMarket($source);
+                $market = new LSHMarket($source);
                 $market->refresh($force);
             }
         } else {
@@ -116,7 +116,7 @@ class AmfjAjaxParser
     {
         $result = false;
         if (count($data) == 2) {
-            $marketItem = AmfjMarketItem::createFromCache($data[0], $data[1]);
+            $marketItem = LSHMarketItem::createFromCache($data[0], $data[1]);
             $marketItem->updateBranchDataFromInstalled();
             $result = true;
         }
@@ -139,7 +139,7 @@ class AmfjAjaxParser
                 if (is_array($data)) {
                     $result = [];
                     $idList = [];
-                    $showDuplicates = config::byKey('show-duplicates', 'AlternativeMarketForJeedom');
+                    $showDuplicates = config::byKey('show-duplicates', 'LSHMarketforJeedom');
                     foreach ($data as $source) {
                         $market = new AmfjMarket($source);
                         // Obtenir la liste complète
@@ -152,7 +152,7 @@ class AmfjAjaxParser
                                 if (!\in_array($item->getId(), $idList)) {
                                     $itemData = $item->getDataInArray();
                                     if ($itemData['installed'] === true && $itemData['installedBranchData']['needUpdate'] === true) {
-                                        message::add('AlternativeMarketForJeedom', 'Mise à jour disponible pour '.$itemData['name'], null, null);
+                                        message::add('LSHMarket', 'Mise à jour disponible pour '.$itemData['name'], null, null);
                                     }
                                     array_push($result, $itemData);
                                     array_push($idList, $item->getId());
@@ -168,8 +168,8 @@ class AmfjAjaxParser
                 break;
             case 'branches':
                 if (is_array($data)) {
-                    AmfjDownloadManager::init();
-                    $marketItem = AmfjMarketItem::createFromCache($data['sourceName'], $data['fullName']);
+                    LSHDownloadManager::init();
+                    $marketItem = LSHMarketItem::createFromCache($data['sourceName'], $data['fullName']);
                     if ($marketItem->downloadBranchesInformations()) {
                         $result = $marketItem->getBranchesList();
                         // Sauvegarde la liste des branches téléchargées
@@ -179,8 +179,8 @@ class AmfjAjaxParser
                 break;
             case 'icon':
                 if (is_array($data)) {
-                    AmfjDownloadManager::init();
-                    $marketItem = AmfjMarketItem::createFromCache($data['sourceName'], $data['fullName']);
+                    LSHDownloadManager::init();
+                    $marketItem = LSHMarketItem::createFromCache($data['sourceName'], $data['fullName']);
                     $path = $marketItem->getIconPath();
                     if ($path !== false) {
                         $result = $path;
@@ -206,7 +206,7 @@ class AmfjAjaxParser
      */
     public static function source($params, array $data)
     {
-        $dataStorage = new AmfjDataStorage('lsh');
+        $dataStorage = new LSHDataStorage('lsh');
         switch ($params) {
             case 'add':
                 $source = [];
@@ -220,7 +220,7 @@ class AmfjAjaxParser
                 break;
             case 'remove':
                 $sourceConfig['name'] = $data['id'];
-                $market = new AmfjMarket($sourceConfig);
+                $market = new LSHMarket($sourceConfig);
                 $market->remove();
                 $dataStorage->remove('source_'.$data['id']);
                 $result = true;
@@ -242,7 +242,7 @@ class AmfjAjaxParser
     {
         switch ($params) {
             case 'sources':
-                $dataStorage = new AmfjDataStorage('lsh');
+                $dataStorage = new LSHDataStorage('lsh');
                 foreach ($data as $source) {
                     $sourceData = $dataStorage->getJsonData('source_'.$source['id']);
                     $sourceData['enabled'] = $source['enable'];

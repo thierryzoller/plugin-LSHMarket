@@ -108,4 +108,4 @@ sendVarToJs('branchStr', __("Branche ", __FILE__));
         </div>
     </div>
 <?php
-include_file('desktop', 'plugin.AlternativeMarketForJeedom', 'js', 'AlternativeMarketForJeedom');
+include_file('desktop', 'plugin.AlternativeMarketForJeedom', 'js', 'LSHMarket');

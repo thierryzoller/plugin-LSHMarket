@@ -19,7 +19,7 @@ require_once('AmfjGitManager.class.php');
 require_once('AmfjDownloadManager.class.php');
 require_once('AmfjMarketItem.class.php');
 
-class AmfjMarket
+class LSHMarket
 {
     /**
      * @var int Temps de rafraichissement de la liste des plugins
@@ -43,9 +43,9 @@ class AmfjMarket
      */
     public function __construct($source)
     {
-        AmfjDownloadManager::init();
+        LSHDownloadManager::init();
         $this->source = $source;
-        $this->dataStorage = new AmfjDataStorage('lsh');
+        $this->dataStorage = new LSHDataStorage('lsh');
     }
 
     /**
@@ -59,7 +59,7 @@ class AmfjMarket
     public function refresh($force = false)
     {
         $result = false;
-        if (AmfjDownloadManager::isConnected()) {
+        if (LSHDownloadManager::isConnected()) {
             if ($this->source['type'] == 'github') {
                 $result = $this->refreshGitHub($force);
             } elseif ($this->source['type'] == 'json') {
@@ -81,7 +81,7 @@ class AmfjMarket
     public function refreshGitHub($force)
     {
         $result = false;
-        $gitManager = new AmfjGitManager($this->source['data']);
+        $gitManager = new LSHGitManager($this->source['data']);
         if ($force || $this->isUpdateNeeded($this->source['data'])) {
             $result = $gitManager->updateRepositoriesList();
         }
@@ -105,13 +105,13 @@ class AmfjMarket
         $result = false;
         $content = null;
         if ($force || $this->isUpdateNeeded($this->source['name'])) {
-            $content = AmfjDownloadManager::downloadContent($this->source['data']);
+            $content = LSHDownloadManager::downloadContent($this->source['data']);
             if ($content !== false) {
                 $marketData = json_decode($content, true);
                 $lastChange = $this->dataStorage->getRawData('repo_last_change_' . $this->source['name']);
                 if ($force || $lastChange == null || $marketData['version'] > $lastChange) {
                     foreach ($marketData['plugins'] as $plugin) {
-                        $marketItem = AmfjMarketItem::createFromJson($this->source['name'], $plugin);
+                        $marketItem = LSHMarketItem::createFromJson($this->source['name'], $plugin);
                         $marketItem->writeCache();
                     }
                     $result = true;
@@ -152,7 +152,7 @@ class AmfjMarket
     {
         $result = array();
         if ($this->source['type'] == 'github') {
-            $gitManager = new AmfjGitManager($this->source['data']);
+            $gitManager = new LSHGitManager($this->source['data']);
             $result = $gitManager->getItems($this->source['name']);
         } else if ($this->source['type'] == 'json') {
             $result = $this->getItemsFromJson();
@@ -170,7 +170,7 @@ class AmfjMarket
         $result = array();
         $plugins = $this->dataStorage->getJsonData('repo_data_' . $this->source['name']);
         foreach ($plugins as $plugin) {
-            $marketItem = AmfjMarketItem::createFromCache($this->source['name'], $plugin['gitId'] . '/' . $plugin['repository']);
+            $marketItem = LSHMarketItem::createFromCache($this->source['name'], $plugin['gitId'] . '/' . $plugin['repository']);
             array_push($result, $marketItem);
         }
         return $result;

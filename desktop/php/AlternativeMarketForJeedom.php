@@ -24,7 +24,7 @@ if (!isConnect('admin')) {
     throw new \Exception('{{401 - Accès non autorisé}}');
 }
 
-$dataStorage = new AmfjDataStorage('lsh');
+$dataStorage = new LSHDataStorage('lsh');
 $sourcesListRaw = $dataStorage->getAllByPrefix('source_');
 
 $sourcesList = array();
@@ -37,7 +37,7 @@ if ($sourcesListRaw !== null) {
         }
     }
 
-    \usort($sourcesList, array('AlternativeMarketForJeedom', 'cmpByOrder'));
+    \usort($sourcesList, array('LSHMarket', 'cmpByOrder'));
 }
 
 sendVarToJs('sourcesList', $sourcesList);
@@ -58,12 +58,12 @@ if (isset($_GET['message'])) {
 
     $messageIndex = intval($_GET['message']);
     if ($messageIndex < count($messages)) {
-        message::add('AlternativeMarketForJeedom', $messages[$messageIndex]);
+        message::add('LSHMarket', $messages[$messageIndex]);
     }
 }
 
-include_file('desktop', 'AlternativeMarketForJeedom', 'js', 'AlternativeMarketForJeedom');
-include_file('desktop', 'AlternativeMarketForJeedom', 'css', 'AlternativeMarketForJeedom');
+include_file('desktop', 'AlternativeMarketForJeedom', 'js', 'LSHMarket');
+include_file('desktop', 'AlternativeMarketForJeedom', 'css', 'LSHMarket');
 include_file('core', 'plugin.template', 'js');
 ?>
 <div class="row">
@@ -72,7 +72,7 @@ include_file('core', 'plugin.template', 'js');
                     src="plugins/AlternativeMarketForJeedom/resources/NextDom_Square_BlueAlpha.png" alt="Site NextDom"/></a>
     </div>
     <div class="col-sm-12 col-md-11">
-        <?php if (count($sourcesList) > 1 && config::byKey('show-sources-filters', 'AlternativeMarketForJeedom')) : ?>
+        <?php if (count($sourcesList) > 1 && config::byKey('show-sources-filters', 'LSHMarket')) : ?>
             <div class="market-filters row">
                 <div id="market-filter-src" class="btn-group col-sm-12">
                     <?php
@@ -118,7 +118,7 @@ include_file('core', 'plugin.template', 'js');
             </div>
             <div class="form-group col-sm-12 col-md-6 col-lg-4">
                 <div id="admin-buttons" class="btn-group">
-                    <a href="index.php?v=d&p=plugin&id=AlternativeMarketForJeedom" class="btn btn-primary"><i
+                    <a href="index.php?v=d&p=plugin&id=LSHMarket" class="btn btn-primary"><i
                                 class="fa fa-wrench"></i> {{Configurer}}</a>
                     <button id="mass-update" class="btn btn-primary">
                         <i class="fa fa-download"></i> {{Mise(s) à jour}}

@@ -188,7 +188,7 @@ function refresh(force) {
         params: params,
         data: sourcesList
     };
-    ajaxQuery('plugins/AlternativeMarketForJeedom/core/ajax/AlternativeMarketForJeedom.ajax.php', ajaxData, function () {
+    ajaxQuery('plugins/LSHMarket/core/ajax/AlternativeMarketForJeedom.ajax.php', ajaxData, function () {
         refreshItems();
     });
 }
@@ -202,7 +202,7 @@ function refreshItems() {
         params: 'list',
         data: sourcesList
     };
-    ajaxQuery('plugins/AlternativeMarketForJeedom/core/ajax/AlternativeMarketForJeedom.ajax.php', ajaxData, function (result) {
+    ajaxQuery('plugins/LSHMarket/core/ajax/AlternativeMarketForJeedom.ajax.php', ajaxData, function (result) {
         showItems(result);
         updateFilteredList();
         if (pluginsUpdateNeededList.length > 0) {
@@ -259,7 +259,7 @@ function iconDownload() {
         var itemData = content[0];
         var itemObj = content[1];
         $.post({
-            url: 'plugins/AlternativeMarketForJeedom/core/ajax/AlternativeMarketForJeedom.ajax.php',
+            url: 'plugins/LSHMarket/core/ajax/AlternativeMarketForJeedom.ajax.php',
             global: false,
             data: {
                 action: 'get',
@@ -316,7 +316,7 @@ function getItemHtml(item) {
 
     var iconPath = item['iconPath'];
     if (item['iconPath'] === false) {
-        iconPath = 'plugins/AlternativeMarketForJeedom/resources/wait_icon.png';
+        iconPath = 'plugins/LSHMarket/resources/wait_icon.png';
     }
     // Préparation du code
     var result = '' +
@@ -354,7 +354,7 @@ function getItemHtml(item) {
 function showPluginModal(pluginData, iconPath) {
     var modal = $('#md_modal');
     modal.dialog({title: pluginData['name']});
-    modal.load('index.php?v=d&plugin=AlternativeMarketForJeedom&modal=plugin.AlternativeMarketForJeedom').dialog('open');
+    modal.load('index.php?v=d&plugin=LSHMarket&modal=plugin.LSHMarket').dialog('open');
     currentPlugin = pluginData;
     currentPlugin['iconPath'] = iconPath;
 }
@@ -374,7 +374,7 @@ function updatePlugin(id, massUpdate) {
             data: [currentPlugin['sourceName'], currentPlugin['fullName']]
         }
         // Met à jour les branches
-        ajaxQuery('plugins/AlternativeMarketForJeedom/core/ajax/AlternativeMarketForJeedom.ajax.php', data, function () {
+        ajaxQuery('plugins/LSHMarket/core/ajax/AlternativeMarketForJeedom.ajax.php', data, function () {
             if (massUpdate && pluginsUpdateNeededList.length > 1) {
                 pluginsUpdateNeededList.splice(0, 1);
                 currentPlugin = pluginsUpdateNeededList[0];

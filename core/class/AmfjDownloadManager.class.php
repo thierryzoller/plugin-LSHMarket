@@ -18,7 +18,7 @@
 /**
  * Gestion des téléchargements
  */
-class AmfjDownloadManager
+class LSHDownloadManager
 {
     /**
      * @var bool Statut de la connexion
@@ -96,7 +96,7 @@ class AmfjDownloadManager
                 $url = $url . '?' . $toAdd;
             }
         }
-        log::add('AlternativeMarketForJeedom', 'debug', 'Download ' . $url);
+        log::add('LSHMarketforJeedom', 'debug', 'Download ' . $url);
         return self::downloadContentWithCurl($url, $binary);
     }
 
@@ -135,7 +135,7 @@ class AmfjDownloadManager
             if ($binary) {
                 \curl_setopt($curlSession, CURLOPT_BINARYTRANSFER, true);
             }
-            \curl_setopt($curlSession, CURLOPT_USERAGENT, 'AlternativeMarketForJeedom');
+            \curl_setopt($curlSession, CURLOPT_USERAGENT, 'LSHMarketforJeedom');
             $content = \curl_exec($curlSession);
             \curl_close($curlSession);
         }

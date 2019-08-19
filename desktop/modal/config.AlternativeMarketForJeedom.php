@@ -22,7 +22,7 @@ if (!isConnect('admin')) {
 }
 
 require_once(__DIR__.'/../../core/class/AmfjDataStorage.class.php');
-$dataStorage = new AmfjDataStorage('lsh');
+$dataStorage = new LSHDataStorage('lsh');
 $sourcesListRaw = $dataStorage->getAllByPrefix('source_');
 
 $sourcesList = array();
@@ -33,7 +33,7 @@ foreach ($sourcesListRaw as $sourceRaw) {
     \array_push($sourcesList, $source);
 }
 
-\usort($sourcesList, array('AlternativeMarketForJeedom', 'cmpByOrder'));
+\usort($sourcesList, array('LSHMarket', 'cmpByOrder'));
 
 sendVarToJs('sourcesList', $sourcesList);
 
@@ -77,5 +77,5 @@ sendVarToJs('sourcesList', $sourcesList);
         </div>
     </div>
 <?php
-    include_file('desktop', 'config.AlternativeMarketForJeedom', 'js', 'AlternativeMarketForJeedom');
-    include_file('desktop', 'AlternativeMarketForJeedom', 'css', 'AlternativeMarketForJeedom');
+    include_file('desktop', 'config.AlternativeMarketForJeedom', 'js', 'LSHMarket');
+    include_file('desktop', 'AlternativeMarketForJeedom', 'css', 'LSHMarket');

@@ -25,7 +25,7 @@ require_once(dirname(__FILE__) . '/../core/class/AlternativeMarketForJeedom.clas
  */
 function AlternativeMarketForJeedom_install()
 {
-    $dataStorage = new AmfjDataStorage('lsh');
+    $dataStorage = new LSHDataStorage('lsh');
     $dataStorage->createDataTable();
 
     $markets = [
@@ -37,7 +37,7 @@ function AlternativeMarketForJeedom_install()
     }
 
     config::save('github::enable', 1);
-    config::save('show-disclaimer', true, 'AlternativeMarketForJeedom');
+    config::save('show-disclaimer', true, 'LSHMarket');
 }
 
 /**
@@ -46,7 +46,7 @@ function AlternativeMarketForJeedom_install()
 function AlternativeMarketForJeedom_update()
 {
     // Suppression de l'ancienne gestion des sources
-    foreach (eqLogic::byType('AlternativeMarketForJeedom') as $eqLogic) {
+    foreach (eqLogic::byType('LSHMarket') as $eqLogic) {
         $eqLogic->remove();
     }
 }
@@ -57,14 +57,14 @@ function AlternativeMarketForJeedom_update()
 function AlternativeMarketForJeedom_remove()
 {
     // Suppression des sources de la base de données
-    $dataStorage = new AmfjDataStorage('lsh');
+    $dataStorage = new LSHDataStorage('lsh');
     $dataStorage->dropDataTable();
 
     // Suppresion des données de configuration
-    config::remove('show-disclaimer', 'AlternativeMarketForJeedom');
-    config::remove('show-duplicates', 'AlternativeMarketForJeedom');
-    config::remove('show-sources-filters', 'AlternativeMarketForJeedom');
+    config::remove('show-disclaimer', 'LSHMarket');
+    config::remove('show-duplicates', 'LSHMarket');
+    config::remove('show-sources-filters', 'LSHMarket');
     // Suppression du cache depuis le répertoire core/ajax
-    exec('rm -fr ../../plugins/AlternativeMarketForJeedom/cache/*');
+    exec('rm -fr ../../plugins/LSHMarket/cache/*');
 }
 

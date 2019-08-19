@@ -98,7 +98,7 @@ function saveSourcesChoices() {
  */
 function ajaxQuery(queryData, callbackFunc) {
     $.post({
-        url: 'plugins/AlternativeMarketForJeedom/core/ajax/AlternativeMarketForJeedom.ajax.php',
+        url: 'plugins/LSHMarket/core/ajax/AlternativeMarketForJeedom.ajax.php',
         data: queryData,
         dataType: 'json',
         success: function (data, status) {

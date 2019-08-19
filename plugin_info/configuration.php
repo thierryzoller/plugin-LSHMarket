@@ -27,13 +27,13 @@ if (!isConnect()) {
     // @codeCoverageIgnoreEnd
 }
 
-$showDisclaimer = config::byKey('show-disclaimer', 'AlternativeMarketForJeedom');
+$showDisclaimer = config::byKey('show-disclaimer', 'LSHMarket');
 sendVarToJs('showDisclaimer', $showDisclaimer);
 if ($showDisclaimer) {
-    config::save('show-disclaimer', false, 'AlternativeMarketForJeedom');
+    config::save('show-disclaimer', false, 'LSHMarket');
 }
 
-include_file('desktop', 'AlternativeMarketForJeedomConfig', 'css', 'AlternativeMarketForJeedom');
+include_file('desktop', 'AlternativeMarketForJeedomConfig', 'css', 'LSHMarket');
 ?>
     <form id="amfj-config" class="config-form form-horizontal">
         <div class="form-group">
@@ -72,4 +72,4 @@ include_file('desktop', 'AlternativeMarketForJeedomConfig', 'css', 'AlternativeM
     </form>
 
 <?php
-include_file('desktop', 'AlternativeMarketForJeedomConfiguration', 'js', 'AlternativeMarketForJeedom');
+include_file('desktop', 'AlternativeMarketForJeedomConfiguration', 'js', 'LSHMarket');

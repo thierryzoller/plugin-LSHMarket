@@ -33,5 +33,5 @@ function showConfigModal() {
 function showModal(title, modalName) {
     var modal = $('#md_modal');
     modal.dialog({title: title});
-    modal.load('index.php?v=d&plugin=AlternativeMarketForJeedom&modal='+modalName+'.AlternativeMarketForJeedom').dialog('open');
+    modal.load('index.php?v=d&plugin=LSHMarket&modal='+modalName+'.LSHMarket').dialog('open');
 }

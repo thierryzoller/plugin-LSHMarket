@@ -23,7 +23,7 @@ require_once('AmfjDownloadManager.class.php');
 /**
  * Classe des objets de Jeedom
  */
-class LSHMarket extends eqLogic
+class LSHMarketforJ extends eqLogic
 {
     /**
      * Compare deux objets en fonction de la valeur 'order'

@@ -29,7 +29,7 @@ function AlternativeMarketForJeedom_install()
     $dataStorage->createDataTable();
 
     $markets = [
-        ['name' => 'LSH Stable', 'enabled' => 1, 'type' => 'json', 'order' => 1, 'data' => 'https://raw.githubusercontent.com/thierryzoller/LSH-Lists/master/results/lsh-stable.json'],
+        ['name' => 'LSH Stable', 'enabled' => 1, 'type' => 'json', 'order' => 1, 'data' => 'https://raw.githubusercontent.com/thierryzoller/LSH-Lists/master/results/lsh-stable.json']
     ];
 
     foreach ($markets as $market) {

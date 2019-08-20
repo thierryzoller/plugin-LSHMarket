@@ -22,7 +22,7 @@ if (!isConnect('admin')) {
 }
 
 require_once(__DIR__.'/../../core/class/AmfjDataStorage.class.php');
-require_once('AlternativeMarketForJeedom.class.php');
+require_once(__DIR__.'/../../core/class/AlternativeMarketForJeedom.class.php');
 
 $dataStorage = new LSHDataStorage('lsh');
 $sourcesListRaw = $dataStorage->getAllByPrefix('source_');

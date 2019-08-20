@@ -29,7 +29,13 @@ function AlternativeMarketForJeedom_install()
     $dataStorage->createDataTable();
 
     $markets = [
-        ['name' => 'LSHMarket-Stable', 'enabled' => 1, 'type' => 'json', 'order' => 1, 'data' => 'https://raw.githubusercontent.com/thierryzoller/LSH-Lists/master/results/lsh-stable.json'],
+	    ['name' => 'NextDom Stable', 'enabled' => 1, 'type' => 'json', 'order' => 1, 'data' => 'https://raw.githubusercontent.com/NextDom/AlternativeMarket-Lists/master/results/nextdom-stable.json'],
+        ['name' => 'NextDom draft', 'enabled' => 0, 'type' => 'json', 'order' => 2, 'data' => 'https://raw.githubusercontent.com/NextDom/AlternativeMarket-Lists/master/results/nextdom-draft.json'],
+        ['name' => 'Mika-nt28', 'enabled' => 1, 'type' => 'json', 'order' => 3, 'data' => 'https://raw.githubusercontent.com/NextDom/AlternativeMarket-Lists/master/results/mika-nt28-stable.json'],
+        ['name' => 'Mika-nt28 draft', 'enabled' => 0, 'type' => 'json', 'order' => 4, 'data' => 'https://raw.githubusercontent.com/NextDom/AlternativeMarket-Lists/master/results/mika-nt28-draft.json'],
+        ['name' => 'KiwiHC16', 'enabled' => 1, 'type' => 'json', 'order' => 5, 'data' => 'https://raw.githubusercontent.com/NextDom/AlternativeMarket-Lists/master/results/KiwiHC16.json'],
+        ['name' => 'Jeedom', 'enabled' => 1, 'type' => 'json', 'order' => 999, 'data' => 'https://raw.githubusercontent.com/NextDom/AlternativeMarket-Lists/master/results/jeedom.json'],
+        ['name' => 'LSH Stable', 'enabled' => 1, 'type' => 'json', 'order' => 6, 'data' => 'https://raw.githubusercontent.com/thierryzoller/LSH-Lists/master/results/lsh-stable.json']
     ];
 
     foreach ($markets as $market) {

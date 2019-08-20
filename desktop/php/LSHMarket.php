@@ -17,6 +17,7 @@
 
 require_once __DIR__ . '/../../core/class/AmfjMarket.class.php';
 require_once __DIR__.'/../../core/class/AmfjDataStorage.class.php';
+require_once __DIR__.'/../../core/class/AlternativeMarketForJeedom.class.php';
 
 include_file('core', 'authentification', 'php');
 

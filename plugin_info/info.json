@@ -1,6 +1,6 @@
 {
   "id": "LSHMarket",
-  "name": "LUX Smart Home Market",
+  "name": "LSH Plugin Market",
   "licence": "GPL",
   "require": "3.0",
   "version": "0.2",
@@ -10,6 +10,6 @@
   "maxDependancyInstallTime": 0,
   "documentation": "",
   "changelog": "",
-  "description": "Market alternatif pour la solution domotique Jeedom",
+  "description": "Plugin Market for LSH",
   "author": "Thierry Zoller"
 }

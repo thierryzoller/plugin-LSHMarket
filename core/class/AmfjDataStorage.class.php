@@ -174,7 +174,7 @@ class LSHDataStorage
     {
         $this->storeRawData($code, \json_encode($jsonData));
 		$a = $this->storeRawData($code, \json_encode($jsonData));
-		log::add("LSHMarket","INFO","Json Data Write" . $à);
+		log::add("LSHMarket","INFO","Json Data Write" . $a);
     }
 
     /**

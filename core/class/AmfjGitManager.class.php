@@ -189,9 +189,12 @@ class LSHGitManager
         $result = array();
         $repositories = $this->getRepositoriesList();
         $ignoreList = $this->getIgnoreList();
+		log::add("LSHMarket","INFO","Ignorelist:" . $ignoreList);
+                array_push($result, $marketItem);
         foreach ($repositories as $repository) {
             if (!\in_array($repository['name'], $ignoreList)) {
                 $marketItem = LSHMarketItem::createFromCache($sourceName, $repository['full_name']);
+																		log::add("LSHMarket","INFO","Create from Cache GitManager 195");
                 array_push($result, $marketItem);
             }
         }

@@ -118,11 +118,11 @@ class LSHMarketItem
      * @param string $sourceName Nom de la source
      * @param string[] $repositoryInformations Informations du dépôt
      *
-     * @return AmfjMarketItem Elément créé
+     * @return LSHMarketItem Elément créé
      */
     public static function createFromGit($sourceName, $repositoryInformations)
     {
-        $result = new AmfjMarketItem($sourceName);
+        $result = new LSHMarketItem($sourceName);
         $result->initWithGlobalInformations($repositoryInformations);
         return $result;
     }
@@ -133,11 +133,11 @@ class LSHMarketItem
      * @param string $sourceName Nom de la source
      * @param string $fullName Nom complet
      *
-     * @return AmfjMarketItem Elément créé
+     * @return LSHMarketItem Elément créé
      */
     public static function createFromCache($sourceName, $fullName)
     {
-        $result = new AmfjMarketItem($sourceName);
+        $result = new LSHMarketItem($sourceName);
         $result->setFullName($fullName);
         $result->readCache();
         return $result;
@@ -149,11 +149,11 @@ class LSHMarketItem
      * @param string $sourceName Nom de la source
      * @param string[] $jsonData Données de l'élément
      *
-     * @return AmfjMarketItem Elément créé
+     * @return LSHMarketItem Elément créé
      */
     public static function createFromJson($sourceName, $jsonData)
     {
-        $result = new AmfjMarketItem($sourceName);
+        $result = new LSHMarketItem($sourceName);
         $result->initWithJsonInformations($jsonData);
         return $result;
     }
@@ -553,7 +553,7 @@ class LSHMarketItem
      *
      * @param string $fullName Nom complet
      *
-     * @return AmfjMarketItem Instance de l'objet
+     * @return LSHMarketItem Instance de l'objet
      */
     public function setFullName($fullName)
     {

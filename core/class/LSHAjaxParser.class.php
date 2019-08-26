@@ -98,7 +98,7 @@ class LSHAjaxParser
         if (is_array($sources)) {
             $result = true;
             foreach ($sources as $source) {
-                $market = new LSHMarket($source);
+                $market = new LSHMarketFunctions($source);
                 $market->refresh($force);
             }
         } else {

@@ -23,7 +23,7 @@ require_once(dirname(__FILE__) . '/../core/class/AlternativeMarketForJeedom.clas
 /**
  * Fonction appelée à l'activation du plugin
  */
-function AlternativeMarketForJeedom_install()
+function LSHMarket_install()
 {
     $dataStorage = new LSHDataStorage('lsh');
 	log::add("LSHBackup","INFO","New Data Storage");
@@ -50,7 +50,7 @@ function AlternativeMarketForJeedom_install()
 /**
  * Fonction appelée à la mise à jour du plugin
  */
-function AlternativeMarketForJeedom_update()
+function LSHMarket_update()
 {
     // Suppression de l'ancienne gestion des sources
     foreach (eqLogic::byType('LSHMarket') as $eqLogic) {
@@ -61,7 +61,7 @@ function AlternativeMarketForJeedom_update()
 /**
  * Fonction appelée à la désactivation du plugin
  */
-function AlternativeMarketForJeedom_remove()
+function LSHMarket_remove()
 {
     // Suppression des sources de la base de données
     $dataStorage = new LSHDataStorage('lsh');

@@ -42,7 +42,7 @@ sendVarToJs('branchStr', __("Branche ", __FILE__));
             </span>
                 <span class="button-item">
                 <div id="install-plugin-advanced" class="btn-group hidden-btn">
-                    <button class="btn btn btn-warning"><i class="fa fa-download"></i> {{Installation avancée}}</button>
+                   <!-- <button class="btn btn btn-warning"><i class="fa fa-download"></i> {{Installation avancée}}</button>-->
                     <button class="btn btn btn-warning dropdown-toggle" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                         <span class="caret"></span>
@@ -65,11 +65,11 @@ sendVarToJs('branchStr', __("Branche ", __FILE__));
                     <h3>{{Description}}</h3>
                     <p id="description-content"></p>
                 </div>
-                <div id="badges">
+              <<!--  <div id="badges">
                     <span><a id="travis-badge"><img src=""/></a></span>
                     <span><a id="coveralls-badge"><img src=""/></a></span>
                     <span><a id="waffle-badge"><img src=""/></a></span>
-                </div>
+                </div>-->
             </div>
         </div>
         <div id="plugin-modal-body" class="row">
@@ -85,8 +85,8 @@ sendVarToJs('branchStr', __("Branche ", __FILE__));
                         {{Documentation}}</a></p>
                 <p><a id="changelog-link" class="btn btn-success" target="_blank" href=""><i class="fa fa-list"></i>
                         {{Changelog}}</a></p>
-                <p><a id="github-link" class="btn btn-success" target="_blank" href=""><i class="fa fa-github"></i>
-                        {{GitHub}}</a></p>
+              <!--  <p><a id="github-link" class="btn btn-success" target="_blank" href=""><i class="fa fa-github"></i>
+                        {{GitHub}}</a></p>-->
             </div>
         </div>
         <div id="plugin-modal-screenshots">

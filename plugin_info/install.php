@@ -26,7 +26,7 @@ require_once(dirname(__FILE__) . '/../core/class/AlternativeMarketForJeedom.clas
 function LSHMarket_install()
 {
     $dataStorage = new LSHDataStorage('lsh');
-	log::add("LSHBackup","INFO","New Data Storage");
+	//log::add("LSHBackup","INFO","New Data Storage");
     $dataStorage->createDataTable();
 
     $markets = [

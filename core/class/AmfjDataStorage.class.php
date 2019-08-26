@@ -28,7 +28,7 @@ class LSHDataStorage
      * @var string Nom de la table des données
      */
     private $dataTableName;
-    log::add("LSHBackup","INFO","Entered Class" . $dataTableName);
+    //log::add("LSHBackup","INFO","Entered Class" . $dataTableName);
     /**
      * Constructeur.
      * Initialise le nom de la table des données
@@ -62,7 +62,7 @@ class LSHDataStorage
      */
     public function createDataTable()
     {
-		log::add("LSHBackup","INFO","Create Table");
+		//log::add("LSHBackup","INFO","Create Table");
         if (!$this->isDataTableExists()) {
             $statement = DB::getConnection()->prepare("CREATE TABLE `" . $this->dataTableName . "` (`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY, `code` VARCHAR(256) NOT NULL, `data` TEXT NULL)");
             $statement->execute();

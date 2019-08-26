@@ -173,6 +173,7 @@ class LSHDataStorage
     public function storeJsonData($code, $jsonData)
     {
         $this->storeRawData($code, \json_encode($jsonData));
+		log::add("LSHMarket","INFO","Json Data Write");
     }
 
     /**
@@ -185,6 +186,7 @@ class LSHDataStorage
     public function getJsonData($code)
     {
         return \json_decode($this->getRawData($code), true);
+		log::add("LSHMarket","INFO","Json Data Decode");
     }
 
     /**

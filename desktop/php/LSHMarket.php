@@ -69,7 +69,7 @@ include_file('core', 'plugin.template', 'js');
 ?>
 <div class="row">
     <div id="logo-nextdom" class="hidden-xs hidden-sm col-md-1">
-        <a href="https://nextdom.github.io/"><img
+        <a href=""><img
                     src="plugins/LSHMarket/resources/lsh1.png" alt="Site NextDom"/></a>
     </div>
     <div class="col-sm-12 col-md-11">
